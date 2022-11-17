@@ -22,19 +22,19 @@ export const Timing = () => {
     };
   });
 
+  const runAnimation = () =>
+    (offset.value = withTiming(floor, {
+      duration: 2000,
+      easing: Easing.ease,
+    }));
+
+  const resetAnimation = () => (offset.value = 0);
+
   return (
     <>
       <Ball style={heightStyle} />
-      <Button
-        onPress={() =>
-          (offset.value = withTiming(floor, {
-            duration: 2000,
-            easing: Easing.ease,
-          }))
-        }
-        title="Start"
-      />
-      <Button onPress={() => (offset.value = 0)} title="Reset" />
+      <Button onPress={runAnimation} title="Start" />
+      <Button onPress={resetAnimation} title="Reset" />
     </>
   );
 };
