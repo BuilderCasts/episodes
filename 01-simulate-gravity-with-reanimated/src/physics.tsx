@@ -37,18 +37,19 @@ export const Physics = () => {
     };
   });
 
+  const runAnimation = () => frameCallback.setActive(true);
+
+  const resetAnimation = () => {
+    frameCallback.setActive(false);
+    velocity.value = 0;
+    position.value = 0;
+  };
+
   return (
     <>
       <Ball style={heightStyle} />
-      <Button onPress={() => frameCallback.setActive(true)} title="Start" />
-      <Button
-        onPress={() => {
-          frameCallback.setActive(false);
-          velocity.value = 0;
-          position.value = 0;
-        }}
-        title="Reset"
-      />
+      <Button onPress={runAnimation} title="Start" />
+      <Button onPress={resetAnimation} title="Reset" />
     </>
   );
 };

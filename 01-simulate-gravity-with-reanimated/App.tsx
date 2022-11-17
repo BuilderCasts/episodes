@@ -5,7 +5,7 @@ import { Physics } from "./src/physics";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Timing />
+      <Physics />
     </View>
   );
 }
